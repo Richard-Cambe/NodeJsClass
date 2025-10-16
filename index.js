@@ -52,10 +52,10 @@ fastify.get('/', async function handler(request, reply) {
     return { hello: 'world' }
 })
 
-
+registerAuthMiddlewares(fastify);
 registerPostRoutes(fastify);
 registerUserRoutes(fastify);
-registerAuthMiddlewares(fastify);
+
 
 try {
     await fastify.listen({ 
