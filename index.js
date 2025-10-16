@@ -31,7 +31,7 @@ fastify.get('/', async function handler(request, reply) {
 })
 await fastify.register(FastifyAuth);
 
-await Fastify.register(fastifySwagger, {
+await fastify.register(fastifySwagger, {
     openapi: {
         components: {
             securitySchemes: {
