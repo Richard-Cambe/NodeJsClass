@@ -5,7 +5,9 @@ import FastifyAuth from '@fastify/auth'
 import { registerAuthMiddlewares } from './middlewares/auth.js';
 import fastifySwagger from '@fastify/swagger';
 import fastifySwaggerUI from '@fastify/swagger-ui';
+import dotenv from 'dotenv';
 
+dotenv.config();
 
 const logger = {
     transport: {
