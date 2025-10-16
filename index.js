@@ -25,10 +25,6 @@ const fastify = Fastify({
     logger
 })
 
-
-fastify.get('/', async function handler(request, reply) {
-    return { hello: 'world' }
-})
 await fastify.register(FastifyAuth);
 
 await fastify.register(fastifySwagger, {
@@ -52,7 +48,10 @@ await fastify.register(fastifySwaggerUI, {
     }
 });
 
-await fastify.ready();
+fastify.get('/', async function handler(request, reply) {
+    return { hello: 'world' }
+})
+
 
 registerPostRoutes(fastify);
 registerUserRoutes(fastify);
@@ -67,3 +66,5 @@ try {
     fastify.log.error(err)
     process.exit(1)
 }
+
+await fastify.ready();
